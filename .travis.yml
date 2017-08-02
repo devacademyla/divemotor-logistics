@@ -1,10 +1,14 @@
 language: ruby
 sudo: false
 dist: trusty
-
+addons:
+  code_climate:
+    repo_token: bd363b1d256f439480a3986e4d920f8f7aa871ec41b411902e361ce77b0da5dc
 before_script:
   - rake db:create RAILS_ENV=test
 
 script:
   - bundle exec rubocop
   - bundle exec rspec
+after_success:
+  - bundle exec codeclimate-test-reporter
