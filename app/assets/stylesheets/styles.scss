@@ -1,0 +1,148 @@
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.scroll__container {
+  overflow-x: auto;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 90%;
+}
+
+.flex_container {
+  display: flex;
+}
+
+.cell__linked {
+  color: $blue;
+}
+
+.title__container {
+  padding: 1.3rem 0 1rem;
+}
+
+.main__content {
+  padding: 1rem 0;
+}
+
+.stadistics {
+  > .flex_container {
+    padding: 1rem 0;
+  }
+
+  .hide {
+    color: $gray;
+    margin-left: auto;
+  }
+}
+
+.stadistics__item {
+  background-color: $medium-gray;
+  flex-direction: column;
+  font-weight: 550;
+  max-width: 150px;
+  padding: 1rem .8rem;
+  text-align: center;
+
+  + .stadistics__item {
+    margin-left: .8rem;
+  }
+}
+
+.stadistics__number {
+  font-size: 180%;
+  margin-bottom: .5rem;
+}
+
+.stadistics__description {
+  line-height: 1.2;
+}
+
+.cell__status {
+  .label {
+    color: $white;
+    width: 90%;
+  }
+
+  .planificado {
+    background-color: $planned;
+  }
+
+  .pendiente {
+    background-color: $pending;
+  }
+
+  .finalizado {
+    background-color: $finished;
+  }
+
+  .retrasado {
+    background-color: $delayed;
+  }
+}
+
+// flash messages
+.alert .wrapper {
+  align-items: center;
+  justify-content: space-between;
+
+  div {
+    padding: .5rem 0;
+  }
+
+  .close {
+    cursor: pointer;
+    font-size: large;
+  }
+}
+//
+
+//
+// .list-alert {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   margin-bottom: 1em;
+//   padding: 3px 10px;
+//   width: 100%;
+// }
+//
+// .close-alert {
+//   align-self: flex-end;
+//   font-size: large;
+//   order: 1;
+//   position: absolute;
+// }
+//
+.alert-error,
+.alert-alert {
+  background-color: $red-light;
+  border-color: $red-light;
+  color: $red;
+  text-align: left;
+ }
+
+.alert-success,
+.alert-notice {
+  background-color: $green-light;
+  border-color: $green-light;
+  color: $green;
+  text-align: left;
+ }

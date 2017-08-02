@@ -1,0 +1,105 @@
+header {
+  background-color: $black;
+  color: $header-text;
+
+  .wrapper {
+    align-items: center;
+  }
+
+  .navbar {
+    a {
+      display: block;
+      font-weight: 700;
+      padding: .8rem;
+    }
+
+    li:hover {
+      color: $white;
+    }
+
+    li + li {
+      margin-left: .8rem;
+    }
+  }
+
+  .notification {
+    border-left: 1px solid $notification-border;
+    border-right: 1px solid $notification-border;
+    margin-left: auto;
+    padding: .8rem 1rem;
+  }
+
+  .notification__display {
+    position: relative;
+  }
+
+  .notification__number {
+    align-items: center;
+    background-color: $notification-color;
+    border-radius: 50%;
+    color: $white;
+    height: 20px;
+    justify-content: center;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    width: 20px;
+  }
+
+  .ui.dropdown {
+    align-items: center;
+    display: flex;
+    margin-left: 1rem;
+
+    .menu {
+      right: 0;
+      top: 30px;
+    }
+  }
+
+  .user__name {
+    font-weight: 700;
+  }
+}
+
+.header__main {
+  background-color: $notification-border;
+  padding: 1rem;
+
+  .wrapper {
+    align-items: center;
+  }
+
+  .logo {
+    opacity: .7;
+    width: 180px;
+  }
+
+  h2 {
+    color: $white;
+    margin: 0;
+  }
+}
+
+.header__form {
+  margin-left: 3rem;
+
+  .ui.dropdown {
+    border-radius: 5px 0 0 5px;
+    min-width: 8rem;
+  }
+
+  .ui.input input {
+    border-left: 0;
+    border-radius: 0;
+    width: 18rem;
+  }
+
+  button {
+    background-color: $blue;
+    border: 0;
+    border-radius: 0 5px 5px 0;
+    color: $white;
+    padding: 0 1rem;
+  }
+}

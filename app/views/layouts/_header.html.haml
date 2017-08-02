@@ -1,0 +1,22 @@
+%header
+  .wrapper.flex_container
+    %nav.navbar
+      %ul.flex_container
+        %li= link_to 'Inicio', '#'
+        %li= link_to 'Autorizaciones', '#'
+        %li= link_to 'Proforma', '#'
+        %li= link_to 'FDV', '#'
+        %li= link_to 'Logística', '#'
+        %li= link_to 'Entrega', '#'
+        %li= link_to 'Ayuda', '#'
+    .notification
+      .notification__display
+        %i.large.icon.alarm.notification__icon
+        %small.flex_container.notification__number 8
+    .current__user
+      .current__user.ui.dropdown
+        %i.large.icon.user.circle.user__icon
+        .user__name= "#{current_user.first_name} #{current_user.last_name}"
+        %i.large.icon.caret.down.user__arrow
+        .menu
+          .item= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete
