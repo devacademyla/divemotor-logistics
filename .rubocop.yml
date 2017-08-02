@@ -8,6 +8,7 @@ AllCops:
     - 'db/**/*'
     - 'config/**/*'
     - 'vendor/**/*'
+    - '**/Guardfile'
 Rails:
   Enabled: true
 Metrics/LineLength:
