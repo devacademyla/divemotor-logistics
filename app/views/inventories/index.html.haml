@@ -1,29 +1,67 @@
-= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete
-%table
-  %thead
-    %tr
-      %th N˚ Pedido
-      %th N˚ Chasis (VIN)
-      %th Marca
-      %th Modelo
-      %th Daños
-      %th Faltantes
-      %th Ubicación
-      %th Estado
-      %th F˚ Planif.
-      %th F˚ Real
-      %th Responsable
-  %tbody
-    - @inventories.each do |inventory|
-      %tr
-        %td= inventory.order_number
-        %td= link_to inventory.vehicle.chasis, '#'
-        %td= inventory.vehicle.brand
-        %td= inventory.vehicle.model
-        %td= inventory.is_damaged ? 'Si' : 'No'
-        %td= inventory.has_missing_parts ? 'Si' : 'No'
-        %td= inventory.location.name
-        %td= inventory.status.upcase
-        %td= inventory.planned_date
-        %td= inventory.real_date
-        %td= "#{inventory.user.first_name} #{inventory.user.last_name}"
+= render 'layouts/header'
+.header__main
+  .wrapper.flex_container
+    .header__titles
+      = image_tag 'logo.png', class: 'logo'
+      %h2 Logística
+    = form_tag(root_path, :method => "get", id: "search-form", class: 'header__form flex_container') do
+      = select_tag :type, options_for_select([["N˚ Pedido", "order_number"], ["N˚ Chasis", "chasis"]], params[:type]), class: 'ui dropdown', id: 'select_options'
+      .ui.input
+        = text_field_tag :search, params[:search], placeholder: "Buscar"
+      %button
+        %i.fitted.large.icon.arrow.right
+
+.wrapper
+  .title__container.flex_container
+    %h2 Inventarios
+  %hr
+  .stadistics
+    .flex_container
+      .stadistics__item.flex_container
+        .stadistics__number 128
+        .stadistics__description INVENTARIOS TOTALES
+      .stadistics__item.flex_container
+        .stadistics__number 5
+        .stadistics__description INVENTARIOS PLANIFICADOS
+      .stadistics__item.flex_container
+        .stadistics__number 10
+        .stadistics__description PROM. INVENTARIOS X DIA
+      .stadistics__item.flex_container
+        .stadistics__number + 5%
+        .stadistics__description COMPARATIVA MES PREVIO
+      %i.large.icon.hide
+    %hr
+  .main__content
+    - if @inventories.present?
+      .scroll__container
+        %table.ui.single.line.striped.table.unstackable
+          %thead
+            %tr
+              %th N˚ Pedido
+              %th N˚ Chasis (VIN)
+              %th Marca
+              %th Modelo
+              %th Daños
+              %th Faltantes
+              %th Ubicación
+              %th Estado
+              %th F˚ Planif.
+              %th F˚ Real
+              %th Responsable
+          %tbody
+            - @inventories.each do |inventory|
+              %tr
+                %td= inventory.order_number
+                %td.cell__linked= link_to inventory.vehicle.chasis, '#'
+                %td= inventory.vehicle.brand
+                %td= inventory.vehicle.model
+                %td= inventory.is_damaged ? 'Si' : 'No'
+                %td= inventory.has_missing_parts ? 'Si' : 'No'
+                %td= inventory.location.name
+                %td.cell__status
+                  %small.ui.horizontal.label{ class: inventory.status.downcase }= inventory.status.upcase
+                %td= inventory.planned_date
+                %td= inventory.real_date
+                %td= "#{inventory.user.first_name} #{inventory.user.last_name}"
+    - else
+      %h4 No hay resultados
