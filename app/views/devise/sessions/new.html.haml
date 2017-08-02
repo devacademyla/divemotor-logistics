@@ -1,17 +1,24 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "off"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+.devise
+  .devise__form
+    %h2.ui.header Iniciar sesión
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'ui large form'}) do |f|
+      .ui.segment
+        -# = render "layouts/messages"
+        .devise__image
+          %i.circular.grey.huge.user.icon
+        .field
+          .ui.left.icon.input
+            %i.user.icon
+            = f.email_field :email, autofocus: true, placeholder: 'Correo electrónico'
+        .field
+          .ui.left.icon.input
+            %i.lock.icon
+            = f.password_field :password, autocomplete: "off", placeholder: 'Contraseña'
+        - if devise_mapping.rememberable?
+          .field.ui.checkbox
+            = f.check_box :remember_me
+            = f.label :remember_me, 'Recuérdame', class: 'no-bold'
+        .actions
+          = f.submit "Ingresar", class: 'ui fluid large submit button'
+    .ui.message.link.items
+      = render "devise/shared/links"

@@ -1,10 +1,13 @@
-%h2 Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+.devise
+  .devise__form
+    %h2.ui.header ¿Olvidaste tu contraseña?
+    = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post , class: 'ui large form'}) do |f|
+      .ui.segment
+        -# = devise_error_messages!
+        .field
+          = f.label :email, 'Correo electrónico'
+          = f.email_field :email, autofocus: true
+        .actions
+          = f.submit "Enviar instrucciones al correo electrónico", class: 'ui fluid large submit button'
+    .ui.message.link.items
+      = render "devise/shared/links"

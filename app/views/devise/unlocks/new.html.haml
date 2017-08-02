@@ -1,10 +1,10 @@
-%h2 Resend unlock instructions
+%h2 Reenviar instrucciones de desbloqueo
 = form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
   = devise_error_messages!
   .field
-    = f.label :email
+    = f.label :email, 'Correo electrónico'
     %br/
     = f.email_field :email, autofocus: true
   .actions
-    = f.submit "Resend unlock instructions"
+    = f.submit "Reenviar instrucciones de desbloqueo"
 = render "devise/shared/links"
