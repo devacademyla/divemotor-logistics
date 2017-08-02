@@ -1,0 +1,29 @@
+= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete
+%table
+  %thead
+    %tr
+      %th N˚ Pedido
+      %th N˚ Chasis (VIN)
+      %th Marca
+      %th Modelo
+      %th Daños
+      %th Faltantes
+      %th Ubicación
+      %th Estado
+      %th F˚ Planif.
+      %th F˚ Real
+      %th Responsable
+  %tbody
+    - @inventories.each do |inventory|
+      %tr
+        %td= inventory.order_number
+        %td= link_to inventory.vehicle.chasis, '#'
+        %td= inventory.vehicle.brand
+        %td= inventory.vehicle.model
+        %td= inventory.is_damaged ? 'Si' : 'No'
+        %td= inventory.has_missing_parts ? 'Si' : 'No'
+        %td= inventory.location.name
+        %td= inventory.status.upcase
+        %td= inventory.planned_date
+        %td= inventory.real_date
+        %td= "#{inventory.user.first_name} #{inventory.user.last_name}"
