@@ -8,6 +8,8 @@ engines:
     enabled: true
   rubocop:
     enabled: true
+    Rubocop/Style/PercentLiteralDelimiters:
+        enabled: false
 ratings:
   paths:
   - "**.erb"
