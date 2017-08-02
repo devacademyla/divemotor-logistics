@@ -1,0 +1,28 @@
+engines:
+  scss-lint:
+    enabled: true
+    checks:
+      SelectorFormat:
+        enabled: false
+  eslint:
+    enabled: true
+  rubocop:
+    enabled: true
+    checks:
+      Rubocop/Style/PercentLiteralDelimiters:
+        enabled: false
+ratings:
+  paths:
+  - "**.erb"
+  - "**.haml"
+  - "**.rb"
+  - "**.css"
+  - "**.scss"
+  - "**.js"
+  - "**.jsx"
+exclude_paths:
+- config/
+- db/
+- script/
+- spec/
+- vendor/
