@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170802171520) do
+ActiveRecord::Schema.define(version: 20170802213505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "inventories", force: :cascade do |t|
+    t.integer "order_number"
+    t.boolean "is_damaged"
+    t.boolean "has_missing_parts"
+    t.string "status"
+    t.date "planned_date"
+    t.date "real_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "location_id"
+    t.bigint "user_id"
+    t.bigint "vehicle_id"
+    t.index ["location_id"], name: "index_inventories_on_location_id"
+    t.index ["user_id"], name: "index_inventories_on_user_id"
+    t.index ["vehicle_id"], name: "index_inventories_on_vehicle_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
@@ -34,4 +57,15 @@ ActiveRecord::Schema.define(version: 20170802171520) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vehicles", force: :cascade do |t|
+    t.string "chasis"
+    t.string "brand"
+    t.string "model"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "inventories", "locations"
+  add_foreign_key "inventories", "users"
+  add_foreign_key "inventories", "vehicles"
 end
