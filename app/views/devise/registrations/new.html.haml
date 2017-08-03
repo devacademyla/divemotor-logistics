@@ -1,9 +1,10 @@
 .devise
   .devise__form
-    %h2.ui.header Registro
+    = image_tag 'logo.png', class: 'devise__logo'
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'ui large form'}) do |f|
       .ui.segment
         -# = devise_error_messages!
+        %h2.ui.header Registro
         .field
           .ui.left.input
             = f.text_field :first_name, autofocus: true, placeholder: 'Nombre'
@@ -24,6 +25,6 @@
           .ui.left.input
             = f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Repetir contraseña'
         .actions
-          = f.submit "Registrarme", class: 'ui fluid large submit button'
-    .ui.message.link.items
-      = render "devise/shared/links"
+          = f.submit "REGISTRARSE", class: 'ui fluid large submit button'
+        .devise__link
+          = link_to "Iniciar sesión", new_session_path(resource_name)
