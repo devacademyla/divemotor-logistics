@@ -4,24 +4,31 @@
 
 .devise {
   align-items: center;
-  background-color: $gray;
+  background-color: $black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
 
-  .ui.header {
-    color: $white;
+  .devise__logo {
+    display: flex;
+    margin: 0 auto;
   }
 
-  .devise__image {
-    display: flex;
-    justify-content: center;
+  .ui.segment {
+    padding: 1.5rem;
+  }
+
+  .ui.header {
+    color: $black;
+    font-weight: lighter;
+    text-align: center;
   }
 
   .ui.fluid.button {
     background: $orange;
     color: $white;
+    font-weight: lighter;
   }
 
   .ui.message {
@@ -33,8 +40,9 @@
     display: flex;
   }
 
-  .circular.user.icon {
-    margin-bottom: 10px;
+  .devise__signup {
+    display: flex;
+    margin: 1.5rem 0 0 0;
   }
 
   .ui.form {
