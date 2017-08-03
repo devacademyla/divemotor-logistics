@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Users::SessionsController do
+RSpec.describe Users::RegistrationsController do
   before :each do
     request.env['devise.mapping'] = Devise.mappings[:user]
   end
