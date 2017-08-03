@@ -68,3 +68,19 @@
   max-width: 450px;
   width: 90%;
 }
+
+.devise__form__messages {
+  h2 {
+    display: none;
+  }
+
+  ul {
+    color: $red;
+    list-style-type: disc;
+    padding: 0 1rem 1rem;
+  }
+}
+
+.devise__form__alert {
+  color: $red;
+}
