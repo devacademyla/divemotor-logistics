@@ -1,0 +1,29 @@
+es:
+  activerecord:
+    attributes:
+      user:
+        email: "Correo electrónico"
+        password: "Contraseña"
+        password_confirmation: "Las contraseñas"
+        first_name: "Nombre"
+        last_name: "Apellido"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: "es inválido"
+              blank: "está vacío"
+              taken: "está en uso"
+            password:
+              invalid: "es inválida"
+              blank: "está vacía"
+              too_short: "es muy corta. Mínimo de caracteres: 6"
+            password_confirmation:
+              confirmation: "no son iguales"
+            first_name:
+              invalid: "es inválido"
+              blank: "está vacío"
+            last_name:
+              invalid: "es inválido"
+              blank: "está vacío"
