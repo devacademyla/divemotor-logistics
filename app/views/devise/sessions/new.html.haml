@@ -1,11 +1,10 @@
 .devise
   .devise__form
-    %h2.ui.header Iniciar sesión
+    = image_tag 'logo.png', class: 'devise__logo'
     = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'ui large form'}) do |f|
       .ui.segment
         -# = render "layouts/messages"
-        .devise__image
-          %i.circular.grey.huge.user.icon
+        %h2.ui.header Iniciar sesión
         .field
           .ui.left.icon.input
             %i.user.icon
@@ -19,6 +18,6 @@
             = f.check_box :remember_me
             = f.label :remember_me, 'Recuérdame', class: 'no-bold'
         .actions
-          = f.submit "Ingresar", class: 'ui fluid large submit button'
+          = f.submit "INGRESAR", class: 'ui fluid large submit button'
     .ui.message.link.items
       = render "devise/shared/links"
