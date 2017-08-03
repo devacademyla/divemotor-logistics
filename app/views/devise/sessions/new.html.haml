@@ -3,8 +3,10 @@
     = image_tag 'logo.png', class: 'devise__logo'
     = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'ui large form'}) do |f|
       .ui.segment
-        -# = render "layouts/messages"
         %h2.ui.header Iniciar sesión
+        = content_tag(:div, flash[:error], :id => "flash_error") if flash[:error]
+        = content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice]
+        = content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert]
         .field
           .ui.left.icon.input
             %i.user.icon
@@ -13,10 +15,6 @@
           .ui.left.icon.input
             %i.lock.icon
             = f.password_field :password, autocomplete: "off", placeholder: 'Contraseña'
-        - if devise_mapping.rememberable?
-          .field.ui.checkbox
-            = f.check_box :remember_me
-            = f.label :remember_me, 'Recuérdame', class: 'no-bold'
         .actions
           = f.submit "INGRESAR", class: 'ui fluid large submit button'
         .devise__link

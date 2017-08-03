@@ -46,10 +46,6 @@
   }
 
   .ui.form {
-    .no-bold {
-      font-weight: normal;
-    }
-
     input:focus,
     input:active {
       border-color: $orange;
