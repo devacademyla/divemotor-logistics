@@ -1,0 +1,10 @@
+
+scss_files: 'app/assets/stylesheets/**/*.scss'
+exclude: 'app/assets/stylesheets/plugins/**'
+
+linters:
+  Indentation:
+    severity: warning
+    width: 2
+  SelectorFormat:
+    enabled: false

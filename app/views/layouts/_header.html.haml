@@ -19,4 +19,4 @@
         .user__name= "#{current_user.first_name} #{current_user.last_name}"
         %i.large.icon.caret.down.user__arrow
         .menu
-          .item= link_to "Cerrar sesión", destroy_user_session_path, :method => :delete
+          = link_to "Cerrar sesión", destroy_user_session_path, :method => :delete, class: 'item'
